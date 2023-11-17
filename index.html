@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="index.css" rel="stylesheet"/>
+</head>
+<body>
+    
+    <!-- navigation 1 -->
+    <nav class="nav1">
+        <div class="left">
+            <div class="img"><img src="logo.jpg"/></div>
+            <div class="input"><input type="text" placeholder="Search for products"  /><Button ><i class="dot fa-solid fa-magnifying-glass"></i> Search</Button></div>
+            
+        </div>
+        <div class="right">
+            <a href="">Login</a>
+            <a href=""><i class="fa-solid fa-cart-shopping"></i>Cart</a>
+            </div>
+        </div>
+    </nav>
+    <!-- navigation2 -->
+    <nav class="nav2">
+        <a href="">Mobiles</a>
+        <a href="">Laptops</a>
+        <a href="">Airpods</a>
+        <a href="">USB</a>
+        <a href="">Watches<a>
+        <a href="">Phones</a>
+        <a href="">Tabs</a>
+        <a href="">Battry</a>
+        <a href="">Charger</a>
+        <a href="">Electronic devices</a>
+    </nav>
+    <!-- banner -->
+    <div class="ban">
+        <div class="con">
+            <img class="image" src="img1.jpg"/>
+            <i class="lt fa-solid fa-less-than" onclick="fun2()"></i>
+            
+            <i class="gt fa-solid fa-greater-than" onclick="fun1()"></i> 
+        </div>
+    
+    </div>
+    <div class="list">
+
+
+    </div>
+    <div class="fetching">
+        <h2>Shopping</h2>
+        <div class="con11">
+            
+        </div>
+
+    </div>
+
+    <!--scripting-->
+    <script>
+        let a=["img1.jpg","img2.jpg","img3.jpg","img4.jpg"]
+        let i=0
+        function fun1(){
+         
+            i++
+            if(i>3){
+                i=0
+            }
+            document.getElementsByClassName('image')[0].src=a[i]
+        }
+        function fun2(){
+         
+            i--
+            if(i<0){
+                i=3
+            }
+            document.getElementsByClassName("image")[0].src=a[i]
+        }
+        setInterval(fun1,2000)
+    </script>
+    <!--fetching script-->
+
+    <script>
+        fetch("https://dummyjson.com/products").then((res)=>res.json()).then((data)=>{
+            let arr=data.products
+            let rs=""
+            for(i=0;i<arr.length;i++)
+            {
+                rs=rs+`<div class="card">
+                    <div class="img"><img src="${arr[i].images[0]}"/></div>
+                    <h2>Title:${arr[i].title}</h2>
+                    <h4>Price:${arr[i].price}</h4>
+                    <Button>Add card</Button>
+                    </div>`}
+                    document.getElementsByClassName('con11')[0].innerHTML=rs
+
+        })
+    </script>
+
+    <!-- footer -->
+    <footer>
+        <div class="fcon1">
+            <div class="fcard">
+                <h4>ABOUT</h4>
+                <div>
+                    <a href="">Contact Us</a>
+                    <a href="">About Us</a>
+                    <a href="">Careers</a>
+                    <a href="">Bazzar Stories</a>
+                    <a href="">Press</a>
+                    <a href="">Bazzar Wholesale</a>
+                </div>
+            </div>
+            <div class="fvl"></div>
+            <div class="fcard">
+                <h4>HELP</h4>
+                <div>
+                    <a href="">Payments</a>
+                    <a href="">Shipping</a>
+                    <a href="">Cacellation& Retuern</a>
+                    <a href="">FAQ</a>
+                    <a href="">Report Infringement</a>
+                </div>
+            </div>
+            <div class="fvl"></div>
+            <div class="fcard">
+                <h4>CONSUMER POLICY</h4>
+                <div>
+                    <a href="">Cancillation & Return</a>
+                    <a href="">Term of Use</a>
+                    <a href="">Privacy</a>
+                    <a href="">Sitmap</a>
+                    <a href="">Grievace Redressal</a>
+                    <a href="">Epr Comlinance</a>
+                </div>
+            </div>
+            <div class="fvl"></div>
+            
+            <div class="fcard">
+                <h4>SOCIAL</h4>
+                <div>
+                    <a href="">Facebook</a>
+                    <a href="">Twitter</a>
+                    <a href="">Youtube</a>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="fline"></div>
+        <div class="fcon2">
+            <div><i class="a fa-solid fa-shop"></i><h4>Becom a seller</h4></div>
+            <div><i class="a fa-solid fa-bomb"></i><h4>Advatise</h4></div>
+            <div><i class="a fa-solid fa-gift"></i><h4>Gift Cards</h4></div>
+            <div><i class="a fa-regular fa-circle-question"></i><h4>Help center</h4></div>
+            <div><i class="a fa-regular fa-copyright"></i><h4>2023-2024 Bazzar.com</h4></div>
+
+        </div>
+
+    </footer>
+   
+
+</body>
+</html>
